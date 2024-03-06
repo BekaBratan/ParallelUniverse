@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Game
   m_RootView: {fileID: 5}
   m_MinSize: {x: 875, y: 421}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 470
     height: 454
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -65,9 +65,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 810
+    x: 543
     y: 0
-    width: 410
+    width: 677
     height: 339
   m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 147
+  controlID: 145
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 150}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 0
-  controlID: 781
+  controlID: 192
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 150}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 1
-  controlID: 782
+  controlID: 144
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 783
+  controlID: 53
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -268,8 +268,8 @@ MonoBehaviour:
     y: 0
     width: 297
     height: 454
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -294,8 +294,8 @@ MonoBehaviour:
     y: 0
     width: 453
     height: 454
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -320,8 +320,8 @@ MonoBehaviour:
     y: 454
     width: 1220
     height: 146
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -337,23 +337,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 810
+    width: 543
     height: 339
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
   - {fileID: 22}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -400,9 +400,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 810
+    x: 543
     y: 673
-    width: 408
+    width: 675
     height: 318
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -418,14 +418,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 7718323952928242273, guid: cd600e43ad8ed5440ae5c0649c82df01, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.41006303
+    - e00: 0.66987264
       e01: 0
       e02: 0
-      e03: 0
+      e03: 57.90671
       e10: 0
-      e11: 0.41006303
+      e11: 0.66987264
       e12: 0
-      e13: 42.881668
+      e13: -9.929617
       e20: 0
       e21: 0
       e22: 1
@@ -487,9 +487,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 18610000
+      m_SelectedIDs: 56610000
       m_LastClickedID: 0
-      m_ExpandedIDs: 1afbffffde600000
+      m_ExpandedIDs: 1afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1118,7 +1118,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 673
-    width: 809
+    width: 542
     height: 318
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1141,7 +1141,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1149,30 +1149,31 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 96
-  m_LastProjectPath: C:\Users\Bekarys\Documents\Unity\Parallel Universe
+  m_LastProjectPath: C:\Users\Bekarys\Documents\GitHub\ParallelUniverse\Parallel
+    Universe
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c0610000
-    m_LastClickedID: 25024
-    m_ExpandedIDs: 00000000c0610000e461000034630000
+    m_SelectedIDs: c0620000
+    m_LastClickedID: 25280
+    m_ExpandedIDs: 00000000026200000462000006620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: craftpix-net-800370-free-nature-backgrounds-pixel-art
-      m_OriginalName: craftpix-net-800370-free-nature-backgrounds-pixel-art
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 25062
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 14}
     m_SearchString: 
@@ -1186,7 +1187,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c0610000c2610000
+    m_ExpandedIDs: 00000000026200000462000006620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1211,10 +1212,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: fc600000
-    m_LastClickedInstanceID: 24828
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000d071000090730000e06f000050610000dc61000038630000
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c6230000d071000090730000e06f000050610000dc6100003863000096600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1264,7 +1265,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 673
-    width: 809
+    width: 542
     height: 318
   m_SerializedDataModeController:
     m_DataMode: 0

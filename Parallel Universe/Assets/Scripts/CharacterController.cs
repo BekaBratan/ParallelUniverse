@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -19,7 +20,13 @@ public class CharacterController : MonoBehaviour
     private bool isAttack;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
-    public LayerMask whatIsGround;
+    public LayerMask groundLayer;
+
+
+    // Atack variables
+    public Transform atackPoint;
+    public float atackRange = 0.5f;
+    public LayerMask enemyLayer;
 
 
     private void Awake()
@@ -32,7 +39,7 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
 
         // Get horizontal input for movement
@@ -51,11 +58,13 @@ public class CharacterController : MonoBehaviour
             // Flip character sprite if moving left
             if (horizontalMove < 0)
             {
-                spriteRenderer.flipX = true;
+                Quaternion target = Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 100);
             }
             else if (horizontalMove > 0)
             {
-                spriteRenderer.flipX = false;
+                Quaternion target = Quaternion.Euler(0, 0, 0);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 100);
             }
 
             // Set animator parameters based on movement
@@ -75,11 +84,11 @@ public class CharacterController : MonoBehaviour
 
 
         // Atack
-        if (Input.GetMouseButton(0) && isGrounded)
+        if (Input.GetMouseButtonDown(0) && isGrounded)
         {
             Attack1();
         }
-        if (Input.GetMouseButton(1) && isGrounded)
+        if (Input.GetMouseButtonDown(1) && isGrounded)
         {
             Attack2();
         }
@@ -99,7 +108,17 @@ public class CharacterController : MonoBehaviour
     {
         isAttack = true;
         moveSpeed = 0;
+
         animator.SetTrigger("Attack1");
+    }
+
+    public void Damage(int damage)
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(atackPoint.position, atackRange, enemyLayer);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(damage);
+        }
     }
 
     public void Attack2()
@@ -128,5 +147,13 @@ public class CharacterController : MonoBehaviour
     public void stopAtack()
     {
         isAttack = false;
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        if (atackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(atackPoint.position, atackRange);
     }
 }

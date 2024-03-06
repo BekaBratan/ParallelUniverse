@@ -805,6 +805,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1304186158}
+  - {fileID: 1164783442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1049122548
@@ -851,9 +852,14 @@ MonoBehaviour:
   jumpForce: 6
   groundCheck: {fileID: 1304186158}
   groundCheckRadius: 0.1
-  whatIsGround:
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
+  atackPoint: {fileID: 0}
+  atackRange: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &1049122550
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1112,6 +1118,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1164783441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1164783442}
+  m_Layer: 0
+  m_Name: atackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1164783442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164783441}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.604, y: 0.541, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1049122547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1174475134
 GameObject:
