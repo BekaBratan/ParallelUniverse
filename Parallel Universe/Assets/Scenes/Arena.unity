@@ -299,6 +299,8 @@ GameObject:
   - component: {fileID: 303419986}
   - component: {fileID: 303419987}
   - component: {fileID: 303419988}
+  - component: {fileID: 303419989}
+  - component: {fileID: 303419990}
   m_Layer: 6
   m_Name: Commander
   m_TagString: Untagged
@@ -415,7 +417,7 @@ Transform:
   m_GameObject: {fileID: 303419980}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.98953, y: -2.1039822, z: 0}
+  m_LocalPosition: {x: 27.83, y: 4.06, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -504,6 +506,36 @@ CircleCollider2D:
   m_Offset: {x: 0.029594123, y: 0.52905303}
   serializedVersion: 2
   m_Radius: 0.15419382
+--- !u!114 &303419989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303419980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53573e0fe3889724c9743b6fe92d65c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 1049122544}
+  - {fileID: 1373023871}
+  speed: 3
+  nearDistance: 2
+--- !u!114 &303419990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303419980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3c973d3de264b47847735574e745a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOn: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +927,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -2123794051, guid: 85e9c54c1a03f5d4b93449b1f6114c90, type: 3}
+  m_Sprite: {fileID: 1525982901, guid: 4e0cd08fd0d5b2647b6f34745ae396f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
