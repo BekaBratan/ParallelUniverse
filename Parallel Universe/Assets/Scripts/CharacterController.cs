@@ -1,26 +1,22 @@
-using System;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
 
     // Movement variables
     public float runSpeed = 10f;
     public float walkSpeed = 5f;
     private float moveSpeed;
     private float horizontalMove;
+    private float verticalMove;
 
 
     // Jump variables
     public float jumpForce = 10f;
     private bool isGrounded;
     private bool isAttack;
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.2f;
-    public LayerMask groundLayer;
 
 
     // Atack variables
@@ -31,19 +27,17 @@ public class CharacterController : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         moveSpeed = walkSpeed;
+        isGrounded = true;
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
-
         // Get horizontal input for movement
         horizontalMove = Input.GetAxisRaw("Horizontal");
+        verticalMove = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -59,27 +53,25 @@ public class CharacterController : MonoBehaviour
             if (horizontalMove < 0)
             {
                 Quaternion target = Quaternion.Euler(0, 180, 0);
-                transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 100);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 1000);
             }
             else if (horizontalMove > 0)
             {
                 Quaternion target = Quaternion.Euler(0, 0, 0);
-                transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 100);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 1000);
             }
 
             // Set animator parameters based on movement
-            animator.SetFloat("Speed", Mathf.Abs(horizontalMove) * moveSpeed);
+            animator.SetFloat("Speed", (Mathf.Abs(horizontalMove) + Mathf.Abs(verticalMove)) * moveSpeed);
 
 
             // Jump
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            /* if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                animator.SetBool("isJumping", true);
-            } else if (isGrounded)
-            {
-                animator.SetBool("isJumping", false);
-            }
+                animator.SetTrigger("Jump");
+                isGrounded = false;
+            } */
         }
 
 
@@ -96,10 +88,10 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isAttack)
+        if (!isAttack && isGrounded)
         {
             // Move the character
-            rb.velocity = new Vector2(horizontalMove * moveSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(horizontalMove * moveSpeed, verticalMove * moveSpeed).normalized * 10;
         }
     }
 
@@ -112,15 +104,6 @@ public class CharacterController : MonoBehaviour
         animator.SetTrigger("Attack1");
     }
 
-    public void Damage(int damage)
-    {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(atackPoint.position, atackRange, enemyLayer);
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            enemy.GetComponent<Enemy>().TakeDamage(damage);
-        }
-    }
-
     public void Attack2()
     {
         isAttack = true;
@@ -128,15 +111,23 @@ public class CharacterController : MonoBehaviour
         animator.SetTrigger("Attack2");
     }
 
-
-    public void Hurt()
+    public void Attack3()
     {
-        animator.SetTrigger("Hurt");
+        isAttack = true;
+        moveSpeed = 0;
+        animator.SetTrigger("Attack3");
     }
 
-    public void Die()
+    public void Damage(int damage)
     {
-        animator.SetTrigger("Die");
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(atackPoint.position, atackRange, enemyLayer);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            if (enemy.GetComponent<Enemy>() != null)
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(damage);
+            }
+        }
     }
 
     public void Protect()
@@ -148,7 +139,12 @@ public class CharacterController : MonoBehaviour
     {
         isAttack = false;
     }
-    
+
+    public void stopJump()
+    {
+        isGrounded = true;
+    }
+
     void OnDrawGizmosSelected()
     {
         if (atackPoint == null)

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
 
     public int maxHealth = 100;
     int currentHealth;
@@ -12,6 +10,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage)
@@ -31,6 +30,12 @@ public class Enemy : MonoBehaviour
         animator.SetBool("isDead", true);
 
         this.enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
+    }
+
+    private void notActive()
+    {
+        gameObject.SetActive(false);
     }
 }
