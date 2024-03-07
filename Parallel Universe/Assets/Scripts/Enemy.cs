@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Sound
 {
     private Animator animator;
 
@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            PlaySound(sounds[0]);
         }
     }
 

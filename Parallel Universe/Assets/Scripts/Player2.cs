@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player2 : MonoBehaviour
+public class Player2 : Sound
 {
     private Animator animator;
     private Rigidbody2D rb;
@@ -102,6 +102,7 @@ public class Player2 : MonoBehaviour
         moveSpeed = 0;
 
         animator.SetTrigger("Attack1");
+        PlaySound(sounds[0]);
     }
 
     public void Attack2()
@@ -109,6 +110,7 @@ public class Player2 : MonoBehaviour
         isAttack = true;
         moveSpeed = 0;
         animator.SetTrigger("Attack2");
+        PlaySound(sounds[0]);
     }
 
     public void Attack3()
@@ -116,6 +118,7 @@ public class Player2 : MonoBehaviour
         isAttack = true;
         moveSpeed = 0;
         animator.SetTrigger("Attack3");
+        PlaySound(sounds[0]);
     }
 
     public void Damage(int damage)
@@ -126,8 +129,10 @@ public class Player2 : MonoBehaviour
             if (enemy.GetComponent<Enemy>() != null)
             {
                 enemy.GetComponent<Enemy>().TakeDamage(damage);
+                PlaySound(sounds[1]);
             }
         }
+        
     }
 
     public void Protect()
