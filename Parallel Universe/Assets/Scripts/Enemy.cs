@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -28,7 +29,13 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         animator.SetBool("isDead", true);
-
+        if (gameObject.layer == 7 && SceneManager.GetActiveScene().buildIndex != 4)
+        {
+            PlayerPrefs.SetInt("Players", PlayerPrefs.GetInt("Players", 0) - 1);
+        } else
+        {
+            PlayerPrefs.SetInt("Head", PlayerPrefs.GetInt("Head", 0) + 1);
+        }
         this.enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;

@@ -90,7 +90,7 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 20
+    intParameter: 40
     messageOptions: 0
   - time: 0.5
     functionName: stopAtack

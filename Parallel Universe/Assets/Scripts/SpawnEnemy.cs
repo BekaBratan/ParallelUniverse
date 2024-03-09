@@ -19,7 +19,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         while (gameOn)
         {
-            yield return new WaitForSeconds(Random.Range(1.5f, 2.5f));
+            yield return new WaitForSeconds(Random.Range(4.5f, 7.5f));
 
             GameObject newEnemy = Instantiate(gameObject, transform.position, Quaternion.identity);
 
@@ -28,6 +28,8 @@ public class SpawnEnemy : MonoBehaviour
             newEnemy.SetActive(true);
 
             newEnemy.transform.position = new Vector2(Random.Range(-12f, 12f), Random.Range(-2.3f, -6.7f));
+
+            PlayerPrefs.SetInt("Clone", PlayerPrefs.GetInt("Clone", 0) + 1);
         }
     }
 

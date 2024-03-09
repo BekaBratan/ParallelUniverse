@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main.unity
+    guid: 0c29623bbf27da44293ff778ca3a8f34
+  - enabled: 1
+    path: Assets/Scenes/Samurais.unity
+    guid: b1747dc046469af438f3a5299e0a0adc
+  - enabled: 1
+    path: Assets/Scenes/Teleporter.unity
+    guid: 5a20365a35e68d24389a786add793bad
+  - enabled: 1
+    path: Assets/Scenes/Cloner.unity
+    guid: 85ce46add9fa90c4ba28f1c2124117c5
+  - enabled: 1
+    path: Assets/Scenes/PVP.unity
+    guid: 8412f3edf2de97540bc0e78988663778
   m_configObjects: {}
