@@ -5,10 +5,12 @@ public class Player2 : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
 
+    public AudioSource[] audioSources;
+
     // Movement variables
     public float runSpeed = 10f;
     public float walkSpeed = 5f;
-    private float moveSpeed;
+    private float moveSpeed; 
     private float horizontalMove;
     private float verticalMove;
 
@@ -121,6 +123,14 @@ public class Player2 : MonoBehaviour
     public void Damage(int damage)
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(atackPoint.position, atackRange, enemyLayer);
+        if (hitEnemies.Length > 0)
+        {
+            audioSources[0].Play();
+        }
+        else
+        {
+            audioSources[1].Play();
+        }
         foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy.GetComponent<Enemy>() != null)

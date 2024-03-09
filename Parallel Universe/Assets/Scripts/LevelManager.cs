@@ -9,7 +9,9 @@ public class LevelManager : MonoBehaviour
     int playerCount = 0;
     public float time = 3;
     float timer;
+    float timer2;
     int clone = 0;
+    bool timerOn;
 
     public TMP_Text headText;
     public TMP_Text lastText;
@@ -22,12 +24,23 @@ public class LevelManager : MonoBehaviour
         headText.SetText("HEADS: " + headCount + "/" + neededHead);
         lastText.SetText("Fight");
         timer = time;
+        timer2 = 1;
         PlayerPrefs.SetInt("Clone",3);
+        timerOn = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (timerOn) { 
+            timer2 -= Time.deltaTime;
+            if (timer2 <= 0) {
+                lastText.SetText("");
+                timer2 = 2;
+                timerOn = false;
+            }
+        }
+        
         if (timer == time)
         {
             clone = PlayerPrefs.GetInt("Clone", 0);
@@ -54,6 +67,7 @@ public class LevelManager : MonoBehaviour
         {
             headText.SetText("");
             lastText.SetText("Game Over \n Main menu on auto load");
+            // audioSource.Play();
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
